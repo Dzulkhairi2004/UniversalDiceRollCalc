@@ -8,8 +8,11 @@ public class RollerFactory {
 		else if(systemType.equalsIgnoreCase("Marvel")) {
 			return new Marvel616Roller();
 		}
+		else if(systemType.equalsIgnoreCase("Dimensions")) {
+			return new DimensionsRoller();
+		}
 		else {
-			throw new InvalidSystemException("Unsupported game system: '" + systemType + "'. Current supported systems are 'Standard' and 'Marvel'.");
+			throw new InvalidSystemException("Unsupported game system: '" + systemType + "'. Current supported systems are 'Standard', 'Marvel' and 'Dimensions'.");
 		}
 	}
 }

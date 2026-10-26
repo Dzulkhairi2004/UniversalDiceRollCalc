@@ -30,4 +30,15 @@ public class RollResult {
 		return summaryText;
 	}
 	
+	public void printBreakdown() {
+		System.out.println("==========================================");
+		System.out.println("System           : " + systemName);
+		System.out.println("Individual Rolls : " + rawDice);
+		System.out.println("Total Result     : " + total);
+		if(summaryText != null && !summaryText.isEmpty()) {
+			System.out.println("Summary          : " + summaryText);
+		}
+		System.out.println("==========================================");
+	}
+	
 }

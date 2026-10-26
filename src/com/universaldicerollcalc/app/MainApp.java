@@ -14,12 +14,13 @@ public class MainApp {
 			System.out.println("\nSelect a Game System:");
 			System.out.println("1. Standard (d4, d6, d8, d10, d12, d20, d100)");
 			System.out.println("2. Marvel Multiverse d616");
-			System.out.println("3. Exit");
-			System.out.print("Enter choice (1-3): ");
+			System.out.println("3. Dungeons & Dimensions");
+			System.out.println("4. Exit");
+			System.out.print("Enter choice (1-4): ");
 			
 			String choice = sc.nextLine().trim();
 			
-			if(choice.equals("3")) {
+			if(choice.equals("4")) {
 				System.out.println("\nThank you for rolling! Goodbye!");
 				running = false;
 				break;
@@ -32,8 +33,11 @@ public class MainApp {
 			else if(choice.equals("2")) {
 				systemName = "Marvel";
 			}
+			else if(choice.equals("3")) {
+				systemName = "Dimensions";
+			}
 			else {
-				System.out.println("\n[!] Invalid choice! Please select 1, 2 or 3.");
+				System.out.println("\n[!] Invalid choice! Please select 1, 2, 3 or 4.");
 				continue;
 			}
 			
@@ -83,10 +87,20 @@ public class MainApp {
 						System.out.print("Enter Marvel Die value: ");
 						physicalDice.add(Integer.parseInt(sc.nextLine().trim()));
 					}
+					else if(systemName.equalsIgnoreCase("Dimensions")) {
+					    System.out.print("Enter Regular Action Die #1 value: ");
+					    physicalDice.add(Integer.parseInt(sc.nextLine().trim()));
+					    System.out.print("Enter Regular Action Die #2 value: ");
+					    physicalDice.add(Integer.parseInt(sc.nextLine().trim()));
+					    System.out.print("Enter Bonus Action Die value: ");
+					    physicalDice.add(Integer.parseInt(sc.nextLine().trim()));
+					    System.out.print("Enter Damage Die value (1d6, or 0 if attack missed): ");
+					    physicalDice.add(Integer.parseInt(sc.nextLine().trim()));
+					}
 					result = roller.rollPhysical(physicalDice, modifier);
 				}
-				System.out.println("ROLL RESULT");
-				System.out.println(result.getSummaryText());
+				System.out.println("\n--- ROLL RESULT ---");
+				result.printBreakdown();
 			} catch(NumberFormatException e) {
 				System.out.println("\n[!] Input Error: Please enter valid integer numbers!");
 			} catch(InvalidSystemException e) {

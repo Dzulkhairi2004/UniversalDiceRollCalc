@@ -33,7 +33,7 @@ public class StandardRoller implements DiceRoller {
 		}
 		int total = sum + modifier; //Add ability modifier to find actual total
 		String summary1 = diceCount + "d" + dieSides + " have been rolled!\n"; 
-		String summary2 = "With modifier of " + modifier + ", total is " + total + "\n";
+		String summary2 = "With modifier of " + modifier + ", total is " + total;
 		String fullSummary = summary1 + summary2;
 		String systemName = "Standard d" + dieSides;
 		return new RollResult(systemName, dice, total, fullSummary);
@@ -53,7 +53,7 @@ public class StandardRoller implements DiceRoller {
 		}
 		int total = sum + modifier;
 		String summary1 = "[Physical Roll] " + diceCount + "d" + dieSides + " entered!\n";
-		String summary2 = "With modifier of " + modifier + ", total is " + total + "\n";
+		String summary2 = "With modifier of " + modifier + ", total is " + total;
 		String fullSummary = summary1 + summary2;
 		return new RollResult(getSystemName(), physicalDice, total, fullSummary);
 	}

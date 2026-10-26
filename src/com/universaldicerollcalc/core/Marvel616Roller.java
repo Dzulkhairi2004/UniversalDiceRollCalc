@@ -33,15 +33,15 @@ public class Marvel616Roller implements DiceRoller {
 		dice.add(marvelDieroll);
 		int totalScore = die1 + die2 + marvelDievalue + modifier;
 		int calculatedDamage = marvelDievalue * rank;
-		String scoreSummary = "You Got A: " + totalScore + "\n";
-		String fantasticBonus = "Not this time :(\n";
+		String scoreSummary = "You Got A " + totalScore + "\n";
+		String fantasticBonus = "Fantastic Status : Not this time :(\n";
 		if(ultimateTracker) {
-			fantasticBonus = "YOU ARE A WINNER! ULTIMATE FANTASTIC SUCCESS!\n";
+			fantasticBonus = "Fantastic Status : WE HAVE A WINNER! ULTIMATE FANTASTIC SUCCESS!\n";
 		}
 		else if(fantasticTracker) {
-			fantasticBonus = "YOU ROLLED A MARVEL! FANTASTIC RESULT!\n";
+			fantasticBonus = "Fantastic Status : YOU ROLLED A MARVEL! FANTASTIC RESULT!\n";
 		}
-		String damageSummary = "Damage Dealt: " + calculatedDamage + "\n";  
+		String damageSummary = "Damage Dealt     : " + calculatedDamage;  
 		String fullSummary = scoreSummary + fantasticBonus + damageSummary;
 		String m616 = "Marvel Multiverse d616";
 		return new RollResult(m616, dice, totalScore, fullSummary);
@@ -84,15 +84,15 @@ public class Marvel616Roller implements DiceRoller {
 		}
 		int totalScore = die1 + die2 + marvelDievalue + modifier;
 		int calculatedDamage = marvelDievalue * rank;
-		String scoreSummary = "[Physical Roll] You Got A: " + totalScore + "\n";
-		String fantasticBonus = "Not this time :(\n";
+		String scoreSummary = "[Physical Roll] You Got A " + totalScore + "\n";
+		String fantasticBonus = "Fantastic Status : Not this time :(\n";
 		if(ultimateTracker) {
-			fantasticBonus = "YOU ARE A WINNER! ULTIMATE FANTASTIC SUCCESS!\n";
+			fantasticBonus = "Fantastic Status : YOU ARE A WINNER! ULTIMATE FANTASTIC SUCCESS!\n";
 		}
 		else if(fantasticTracker) {
-			fantasticBonus = "YOU ROLLED A MARVEL! FANTASTIC RESULT!\n";
+			fantasticBonus = "Fantastic Status : YOU ROLLED A MARVEL! FANTASTIC RESULT!\n";
 		}
-		String damageSummary = "Damage Dealt: " + calculatedDamage + "\n";  
+		String damageSummary = "Damage Dealt     : " + calculatedDamage;  
 		String fullSummary = scoreSummary + fantasticBonus + damageSummary;
 		return new RollResult(getSystemName(), physicalDice, totalScore, fullSummary);
 	}
